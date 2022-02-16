@@ -7,19 +7,16 @@ A free-to-use application that consists of an order management system and locati
 
 Food services are not always able to setup easily with an order management system due reasons such as costs or non-established locations (eg. food trucks). This app will fill the gap for those requirements for those necessary businesses.
 
---- 
-
 ## Table Of Contents:
 
 - [React Client - README](frontend/frontend-readme.md)
 
---- 
 ## Getting Started:
 
 ### Run Client & Backend Concurrently -
 **(To Update)**
 
-#### Run Client Separately - 
+### Run Client Separately - 
 1. Clone this repo
 2. Change directory into frontend: `cd frontend`
 3. Install Node Modules: `npm install`
@@ -27,8 +24,6 @@ Food services are not always able to setup easily with an order management syste
 
 ### Run Backend Separately -
 **(To Update)**
-
----
 
 ## Authors:
 * ChrisCodeCole [(github)](https://github.com/ChrisCodeCole)
