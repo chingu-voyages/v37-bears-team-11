@@ -1,14 +1,37 @@
-# voyage-tasks
+#  Food Truck App **(To Update)**
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+A free-to-use application that consists of an order management system and location sharing between food services and their customers.
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Introduction:
 
-> Own it & Make it your Own!
+Food services are not always able to setup easily with an order management system due reasons such as costs or non-established locations (eg. food trucks). This app will fill the gap for those requirements for those necessary businesses.
+
+--- 
+
+## Table Of Contents:
+
+- [React Client - README](frontend/frontend-readme.md)
+
+--- 
+## Getting Started:
+
+### Run Client & Backend Concurrently -
+**(To Update)**
+
+#### Run Client Separately - 
+1. Clone this repo
+2. Change directory into frontend: `cd frontend`
+3. Install Node Modules: `npm install`
+4. Start the app: `npm start`
+
+### Run Backend Separately -
+**(To Update)**
+
+---
+
+## Authors:
+* ChrisCodeCole [(github)](https://github.com/ChrisCodeCole)
+* a-w-m [(github)](https://github.com/a-w-m)
+* oscarsanchez13 [(github)](https://github.com/oscarsanchez13)
+* argenis-e [(github)](https://github.com/Argenis-e)
