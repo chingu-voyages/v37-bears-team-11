@@ -5,7 +5,7 @@ A free-to-use application that consists of an order management system and locati
 
 ## Introduction:
 
-Food services are not always able to setup easily with an order management system due reasons such as costs or non-established locations (eg. food trucks). This app will fill the gap for those requirements for those necessary businesses.
+Food services are not always able to setup easily with an order management system due reasons such as costs or non-established locations (eg. food trucks). This app will fill the gap for those necessary requirements for those bussinesses.
 
 ## Table Of Contents:
 
