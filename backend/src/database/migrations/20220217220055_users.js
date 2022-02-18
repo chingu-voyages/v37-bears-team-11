@@ -1,9 +1,12 @@
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
+ * exports.up function specifies the 
+ * commands to run to make changes to the database
  */
+ 
 exports.up = function(knex) {
-    return knex.schema.createTable('user', (table)=>{
+    return knex.schema.createTable('users', (table)=>{
         table.increments('id').primary()
         table.string('username').notNullable()
         table.string('password').notNullable()
@@ -13,6 +16,7 @@ exports.up = function(knex) {
         table.boolean('is_operator').notNullable()
         table.string('first_name').notNullable()
         table.string('last-name').notNullable()
+        table.timestamps(true, true);
 
     })
   
@@ -21,6 +25,8 @@ exports.up = function(knex) {
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
+ * exports down function specifies the commands to undo the 
+ * changes the export.up function made to the table.
  */
 exports.down = function(knex) {
   return knex.schema.dropTable('users')
