@@ -8,8 +8,9 @@ exports.up = function(knex) {
         table.increments('id').primary()
         table.string('street').notNullable()
         table.string('city').notNullable()
-        table.string('state').notNullable()
+        table.string('state')
         table.string('country').notNullable()
+        table.string('zip')
         table.timestamps(true, true);
 
     })
