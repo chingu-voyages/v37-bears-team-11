@@ -2,6 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
+
 exports.up = function (knex) {
 	return knex.schema.createTable("food_trucks", (table) => {
 		table.increments("id").primary();
@@ -9,16 +10,19 @@ exports.up = function (knex) {
 		table.string("phone").notNullable();
 		table.string("hours").notNullable();
 		table.integer("user");
-		table.foreign("user")
-        .references("id")
-        .inTable("users")
-        .onDelete("cascade");
+		table
+            .foreign("user")
+            .references("id")
+            .inTable("users")
+            .onDelete("cascade");
 		table.string("address");
 		table
 			.foreign("address")
 			.references("id")
 			.inTable("adresses")
 			.onDelete("cascade");
+        table.timestamps(true, true);
+
 	});
 };
 
@@ -26,4 +30,6 @@ exports.up = function (knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {};
+exports.down = function (knex) {
+	return knex.schema.dropTable("food_trucks");
+};
