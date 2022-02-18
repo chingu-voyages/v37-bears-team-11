@@ -11,13 +11,13 @@ exports.up = function (knex) {
 			.foreign("order_id")
 			.references("id")
 			.inTable("orders")
-			.onDelete("cascade");
+			.onDelete("CASCADE");
 		table.integer("menu_item_id");
 		table
 			.foreign("menu_item_id")
 			.references("id")
 			.inTable("menu_items")
-			.onDelete("cascade");
+			.onDelete("CASCADE");
         table.integer('quantity').notNullable()
         table.timestamps(true, true);
 

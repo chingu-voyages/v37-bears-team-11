@@ -14,13 +14,13 @@ exports.up = function (knex) {
             .foreign("user_id")
             .references("id")
             .inTable("users")
-            .onDelete("cascade");
+            .onDelete("CASCADE");
 		table.integer("address_id");
 		table
 			.foreign("address_id")
 			.references("id")
 			.inTable("addresses")
-			.onDelete("cascade");
+			.onDelete("CASCADE");
         table.timestamps(true, true);
 
 	});

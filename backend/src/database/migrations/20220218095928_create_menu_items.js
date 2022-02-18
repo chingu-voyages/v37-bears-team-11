@@ -11,7 +11,7 @@ exports.up = function (knex) {
 			.foreign("food_truck_id")
 			.references("id")
 			.inTable("food_trucks")
-			.onDelete("cascade");
+			.onDelete("CASCADE");
 		table.string("name").notNullable();
 		table.integer("price").notNullable();
 		table.timestamps(true, true);
