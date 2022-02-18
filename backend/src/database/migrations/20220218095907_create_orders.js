@@ -8,9 +8,9 @@ exports.up = function (knex) {
 		table.increments("id").primary();
 		table.boolean("paid").notNullable();
 		table.string("status").notNullable();
-		table.integer("food_truck").notNullable();
+		table.integer("food_truck_id").notNullable();
 		table
-			.foreign("food_truck")
+			.foreign("food_truck_id")
 			.references("id")
 			.inTable("food_trucks")
 			.onDelete("cascade");

@@ -12,7 +12,7 @@ exports.up = function(knex) {
         table.string('password').notNullable()
         table.string('email').notNullable()
         table.string('phone').notNullable()
-        table.integer('address_id')
+        table.integer('address')
         table.boolean('is_operator').notNullable()
         table.string('first_name').notNullable()
         table.string('last-name').notNullable()

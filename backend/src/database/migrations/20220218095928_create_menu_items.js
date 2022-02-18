@@ -6,9 +6,9 @@
 exports.up = function (knex) {
 	return knex.schema.createTable("menu_items", (table) => {
 		table.increments("id").primary();
-		table.integer("food_truck");
+		table.integer("food_truck_id");
 		table
-			.foreign("food_truck")
+			.foreign("food_truck_id")
 			.references("id")
 			.inTable("food_trucks")
 			.onDelete("cascade");

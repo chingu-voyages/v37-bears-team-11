@@ -9,17 +9,17 @@ exports.up = function (knex) {
 		table.string("name").notNullable();
 		table.string("phone").notNullable();
 		table.string("hours").notNullable();
-		table.integer("user");
+		table.integer("user_id");
 		table
-            .foreign("user")
+            .foreign("user_id")
             .references("id")
             .inTable("users")
             .onDelete("cascade");
-		table.string("address");
+		table.integer("address_id");
 		table
-			.foreign("address")
+			.foreign("address_id")
 			.references("id")
-			.inTable("adresses")
+			.inTable("addresses")
 			.onDelete("cascade");
         table.timestamps(true, true);
 
