@@ -15,7 +15,7 @@ exports.up = function(knex) {
         table.integer('address')
         table.boolean('is_operator').notNullable()
         table.string('first_name').notNullable()
-        table.string('last-name').notNullable()
+        table.string('last_name').notNullable()
         table.timestamps(true, true);
 
     })
