@@ -11,13 +11,14 @@ exports.up = function (knex) {
             .foreign("user_id")
             .references("id")
             .inTable("users")
-            .onDelete("cascade");
-		table.integer("food_truck_id");
+            .onDelete("CASCADE");
+		table.integer("menu_item_id");
 		table
-			.foreign("food_truck_id")
+			.foreign("menu_item_id")
 			.references("id")
-			.inTable("food_trucks")
-			.onDelete("cascade");
+			.inTable("menu_items")
+			.onDelete("CASCADE");
+		table.integer('quantity').notNullable()
 	});
 };
 
