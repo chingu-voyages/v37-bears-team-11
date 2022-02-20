@@ -10,6 +10,7 @@ Food services are not always able to setup easily with an order management syste
 ## Table Of Contents:
 
 - [React Client - README](frontend/frontend-readme.md)
+- [Express/Knex/Postgres Backend - README](backend/backend-readme.md)
 
 ## Getting Started:
 
@@ -23,7 +24,8 @@ Food services are not always able to setup easily with an order management syste
 4. Start the app: `npm start`
 
 ### Run Backend Separately -
-**(To Update)**
+1. Follow [Backend Getting Started](backend/backend-readme.md)
+2. Start server with `npm run serve`
 
 ## Authors:
 * ChrisCodeCole [(github)](https://github.com/ChrisCodeCole)
