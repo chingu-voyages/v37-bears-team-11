@@ -1,0 +1,27 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+
+exports.up = function (knex) {
+	return knex.schema.createTable("menu_items", (table) => {
+		table.increments("id").primary();
+		table.integer("food_truck_id");
+		table
+			.foreign("food_truck_id")
+			.references("id")
+			.inTable("food_trucks")
+			.onDelete("CASCADE");
+		table.string("name").notNullable();
+		table.integer("price").notNullable();
+		table.timestamps(true, true);
+	});
+};
+
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+exports.down = function (knex) {
+	return knex.schema.dropTable("menu_items");
+};
