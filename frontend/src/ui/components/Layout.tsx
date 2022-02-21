@@ -3,15 +3,17 @@ import { Link, Outlet } from 'react-router-dom'
 
 function Layout() {
     return (
-        <div>
-            <nav
-                style={{
-                    borderBottom: 'solid 1px',
-                    paddingBottom: '1rem',
-                }}
-            >
-                <Link to='/register'>Sign Up</Link>
-                <Link to='/login'>Login</Link>
+        <div className='w-screen'>
+            <nav className='flex justify-center border-b-2 pb-1'>
+                <Link to='/' className='mx-4'>
+                    Landing Page
+                </Link>
+                <Link to='/register' className='mx-4'>
+                    Sign Up
+                </Link>
+                <Link to='/login' className='mx-4'>
+                    Login
+                </Link>
             </nav>
             <Outlet />
         </div>
