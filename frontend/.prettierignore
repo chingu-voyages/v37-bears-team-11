@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+
+.vscode-test/
+out/
+dist/
+test-fixtures/
+node_modules/
