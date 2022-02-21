@@ -3,7 +3,7 @@
 ## Install Knex:
 * Run command: `npm install knex -g`
 
-## Install PostgresSQL:
+## Install PostgreSQL:
 * Follow official postgres download - [https://www.postgresql.org/download/](https://www.postgresql.org/download/) 
 
 ## Create Database:
@@ -30,5 +30,5 @@
 ## Populate Data
 * Run comand: `knex seed:run`
 
-## Run server
+## Run Server
 * Run comand: `npm run serve`
