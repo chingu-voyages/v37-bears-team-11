@@ -5,6 +5,7 @@ import Layout from './ui/components/Layout'
 import LandingPage from './ui/pages/landing/LandingPage'
 import Login from './ui/pages/registration/Login'
 import Registration from './ui/pages/registration/Registration'
+import Home from './ui/pages/Home/Home'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route index element={<LandingPage />} />
                     <Route path='register' element={<Registration />} />
                     <Route path='login' element={<Login />} />
+                    <Route path='home' element={<Home />} />
                 </Route>
             </Routes>
         </div>
