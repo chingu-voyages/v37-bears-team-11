@@ -1,7 +1,7 @@
 import React from 'react'
 
 function LandingPage() {
-    return <div>LandingPage</div>
+    return <div className='text-orange-default font-mplus'>LandingPage</div>
 }
 
 export default LandingPage

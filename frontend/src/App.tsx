@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 //components
 import Layout from './ui/components/Layout'
 import LandingPage from './ui/pages/landing/LandingPage'
