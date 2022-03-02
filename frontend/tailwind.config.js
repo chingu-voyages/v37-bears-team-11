@@ -15,7 +15,6 @@ module.exports = {
                 blue: {
                     default: '#0097ec',
                 },
-                'primary-orange': '#fc9143',
             },
             fontFamily: {
                 sans: ['PT Sans', ...defaultTheme.fontFamily.sans],
