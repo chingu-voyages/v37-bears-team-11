@@ -1,7 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
     theme: {
         extend: {
             colors: {
@@ -20,7 +19,12 @@ module.exports = {
                 sans: ['PT Sans', ...defaultTheme.fontFamily.sans],
                 mplus: ['"M PLUS Rounded 1c"', ...defaultTheme.fontFamily.sans],
             },
+
+            backgroundImage: {
+                home: "url('/src/assets/images/home.jpg')",
+            },
         },
     },
+    content: ['./src/**/*.{js,jsx,ts,tsx}'],
     plugins: [],
 }

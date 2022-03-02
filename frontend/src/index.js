@@ -3,15 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App'
-import WebFont from 'webfontloader'
 import reportWebVitals from './reportWebVitals'
-
-WebFont.load({
-    google: {
-        // families: ['PT Sans:regular,italic,bold,bold-italic']
-        families: ['M PLUS Rounded 1c:500,700,800,900'],
-    },
-})
 
 ReactDOM.render(
     <React.StrictMode>

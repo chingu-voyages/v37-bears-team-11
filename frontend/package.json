@@ -17,8 +17,7 @@
         "react-scripts": "5.0.0",
         "react-spinners": "^0.11.0",
         "typescript": "^4.5.5",
-        "web-vitals": "^2.1.4",
-        "webfontloader": "^1.6.28"
+        "web-vitals": "^2.1.4"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -46,7 +45,6 @@
         ]
     },
     "devDependencies": {
-        "@types/webfontloader": "^1.6.34",
         "autoprefixer": "^10.4.2",
         "husky": "^7.0.4",
         "lint-staged": "^12.3.4",
