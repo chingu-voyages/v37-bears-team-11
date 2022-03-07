@@ -1,11 +1,14 @@
 {
-  "scripts":{
+  "scripts": {
     "serve": "cd src && nodemon server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "knex": "^1.0.3",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
     "pg": "^8.7.3"
   },
   "devDependencies": {
