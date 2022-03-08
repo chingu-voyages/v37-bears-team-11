@@ -5,6 +5,9 @@ id_rsa_priv.pem
 # dependencies
 /node_modules
 
+#logs
+/src/logs
+
 # misc
 .DS_Store
 .env

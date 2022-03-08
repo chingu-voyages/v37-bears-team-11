@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const passport = require('passport')
+const morganMiddleware = require('./config/morganMiddleware')
 
 /**
  * -------------- GENERAL SETUP ----------------
@@ -10,7 +11,7 @@ const passport = require('passport')
 const app = express()
 
 //require knex function to communicate with database
-const knex = require('./database/connection')
+require('./database/connection')
 
 // Pass the global passport object into the configuration function
 require('./config/passport')(passport)
@@ -22,31 +23,12 @@ app.use(passport.initialize())
 // Instead of using body-parser middleware, use the new Express implementation of the same thing
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(morganMiddleware)
 
 // Allows our application to make HTTP requests to Express application
 app.use(cors())
 
-/**
- * -------------- ROUTES ----------------
- */
-
 // Imports all of the routes from ./routes/index.js
 app.use(require('./routes'))
-
-  /**
- * sample routes
- * create route to GET all users from database
- * create route to Get all food trucks
- **/
-
-app.get('/users', async (req, res) => {
-    try {
-        //query database using knex function
-        const data = await knex('users').select('*')
-        return res.json(data)
-    } catch (err) {
-        return res.send('error')
-    }
-})
 
 module.exports = app
