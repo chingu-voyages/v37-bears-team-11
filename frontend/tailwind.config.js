@@ -22,6 +22,8 @@ module.exports = {
 
             backgroundImage: {
                 home: "url('/src/assets/images/home.jpg')",
+                search: "url('/src/assets/icons/search/searchIcon.svg')",
+                'carat-right': "url('/src/assets/icons/carat/right.svg')",
             },
         },
     },
