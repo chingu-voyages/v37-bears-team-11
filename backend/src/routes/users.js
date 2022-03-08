@@ -2,56 +2,59 @@ const router = require('express').Router()
 const knex = require('../database/connection')
 const passport = require('passport')
 const utils = require('../lib/utils')
+const path = require('path')
+const filename = path.basename(__filename)
+const Logger = require('../lib/logger')(filename)
 
 router.get('/protected', passport.authenticate('jwt', { session: false }), (req, res, next) => {
     res.status(200).json({ success: true, msg: 'You are successfully authenticated to this route!' })
 })
 
 // Validate an existing user and issue a JWT
-router.post('/login', function (req, res, next) {
+router.post('/login', async function (req, res, next) {
+    Logger.info(`/login`)
     const { email, password } = req.body
-    console.log('req body: ', email)
 
-    knex('users')
-        .where('email', email)
-        .limit(1)
-        .then((response) => {
-            const user = response[0]
-            if (!user) {
-                return res.status(401).json({ success: false, msg: 'could not find user' })
-            }
+    try {
+        const user = await knex('users').where('email', email).first()
 
-            const isValid = utils.validPassword(password, user.hash, user.salt)
+        if (!user) {
+            Logger.info(`User unavailable for email - ${email}`)
+            return res.status(401).json({ success: false, msg: 'could not find user' })
+        }
 
-            if (isValid) {
-                const tokenObject = utils.issueJWT(user)
+        const isValid = utils.validPassword(password, user.hash, user.salt)
 
-                res.status(200).json({
-                    success: true,
-                    token: tokenObject.token,
-                    expiresIn: tokenObject.expires,
-                })
-            } else {
-                res.status(401).json({ success: false, msg: 'you entered the wrong password' })
-            }
-        })
-        .catch((error) => {
-            console.error(error)
-            next(error)
-        })
+        if (isValid) {
+            Logger.info(`Valid Password`)
+            const tokenObject = utils.issueJWT(user)
+
+            res.status(200).json({
+                success: true,
+                token: tokenObject.token,
+                expiresIn: tokenObject.expires,
+            })
+        } else {
+            Logger.info(`Password Invalid`)
+            res.status(401).json({ success: false, msg: 'you entered the wrong password' })
+        }
+    } catch (error) {
+        Logger.error(error)
+        next(error)
+    }
 })
 
 // Register a new user
-router.post('/register', function (req, res, next) {
-    console.log('request: ', req.body)
+router.post('/register', async function (req, res, next) {
+    Logger.info(`/register`)
     const { username, password, email, phone, address, is_operator, first_name, last_name } = req.body
     const saltHash = utils.genPassword(password)
 
     const salt = saltHash.salt
     const hash = saltHash.hash
 
-    knex('users')
-        .insert(
+    try {
+        const user = await knex('users').insert(
             {
                 username,
                 password,
@@ -66,14 +69,27 @@ router.post('/register', function (req, res, next) {
             },
             ['id', 'username', 'email', 'phone', 'address', 'is_operator', 'first_name', 'last_name']
         )
-        .then((user) => {
-            console.log('user: ', user)
-            res.json({ success: true, user })
-        })
-        .catch((error) => {
-            console.log('register error: ', error)
-            res.json({ success: false, msg: error })
-        })
+
+        Logger.info(`Inserted User`)
+        res.json({ success: true, user })
+    } catch (error) {
+        Logger.error(error)
+        res.json({ success: false, msg: error })
+    }
+})
+
+/**
+ * sample route
+ * GET all users from database
+ **/
+router.get('/', async (req, res) => {
+    try {
+        //query database using knex function
+        const data = await knex('users').select('*')
+        return res.json(data)
+    } catch (err) {
+        return res.send('error')
+    }
 })
 
 module.exports = router
