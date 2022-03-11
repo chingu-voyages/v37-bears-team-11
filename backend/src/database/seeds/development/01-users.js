@@ -7,6 +7,7 @@ exports.seed = async function (knex) {
     await knex('users').del()
     await knex('users').insert([
         {
+            id: 1,
             username: 'hungry_jack',
             password: 'password',
             email: 'hungryjack@mail.com',
@@ -15,8 +16,11 @@ exports.seed = async function (knex) {
             is_operator: true,
             first_name: 'Jack',
             last_name: 'Marshall',
+            salt: '',
+            hash: ''
         },
         {
+            id: 2,
             username: 'martha_wants_food',
             password: 'password',
             email: 'martha@mail.com',
@@ -25,9 +29,12 @@ exports.seed = async function (knex) {
             is_operator: false,
             first_name: 'Martha',
             last_name: 'DeLeon',
+            salt: '',
+            hash: ''
         },
 
         {
+            id: 3,
             username: 'fast_foods',
             password: 'password',
             email: 'fast_foods@mail.com',
@@ -36,8 +43,11 @@ exports.seed = async function (knex) {
             is_operator: true,
             first_name: 'Wendy',
             last_name: 'Speed',
+            salt: '',
+            hash: ''
         },
         {
+            id: 4,
             username: 'hammer',
             password: 'password',
             email: 'hammer@mail.com',
@@ -46,9 +56,12 @@ exports.seed = async function (knex) {
             is_operator: false,
             first_name: 'Hammer',
             last_name: 'Orcheimer',
+            salt: '',
+            hash: ''
         },
 
         {
+            id: 5,
             username: 'francyfeast',
             password: 'password',
             email: 'francisca@mail.com',
@@ -57,6 +70,8 @@ exports.seed = async function (knex) {
             is_operator: false,
             first_name: 'Francisca',
             last_name: 'Pawsmith',
+            salt: '',
+            hash: ''
         },
     ])
 }
