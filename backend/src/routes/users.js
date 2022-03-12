@@ -70,8 +70,9 @@ router.post('/register', async function (req, res, next) {
             ['id', 'username', 'email', 'phone', 'address', 'is_operator', 'first_name', 'last_name']
         )
 
+        const tokenObject = utils.issueJWT(user)
         Logger.info(`Inserted User`)
-        res.json({ success: true, user })
+        res.json({ success: true, user, token:tokenObject.token })
     } catch (error) {
         Logger.error(error)
         res.json({ success: false, msg: error })
