@@ -15,11 +15,9 @@ export type JSONResponse =
     | {
           success: true
           data: SearchResult[]
-          msg?: never
       }
     | {
           success: false
-          data?: never
           msg: string
       }
 
@@ -32,14 +30,18 @@ async function getSearchResults(query: string): Promise<SearchResult[]> {
         },
     })
     // await response
-    const { success, data, msg }: JSONResponse = await response.json()
+    const JSONresponse: JSONResponse = await response.json()
+    const { success } = JSONresponse
 
     // return data
     if (success) {
+        const { data } = JSONresponse
+
         return data
 
         // handle error in response
     } else {
+        const { msg } = JSONresponse
         return Promise.reject(msg)
     }
 }
