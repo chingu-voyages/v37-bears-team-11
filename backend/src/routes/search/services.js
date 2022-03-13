@@ -41,7 +41,7 @@ async function searchByUserQuery(query) {
 				.where("items.name", "Ilike", `%${query}%`),
 		]);
 
-	return knex({ ft: "food_trucks" })
+	const finalQuery = knex({ ft: "food_trucks" })
 		.select(
 			"ft.id",
 			"ft.name",
@@ -54,6 +54,8 @@ async function searchByUserQuery(query) {
 		)
 		.join({ a: "addresses" }, "a.id", "=", "ft.id")
 		.where("ft.id", "in", subquery);
+			
+	return finalQuery
 }
 
 async function searchByTag(tag) {
