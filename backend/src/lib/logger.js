@@ -58,13 +58,13 @@ module.exports = function (filename) {
 
     const log = (level, message, ...args) => {
         if (typeof message === 'string') {
-            Logger[level](`[${filename}] ${message}`)
+            Logger[level](`[${filename}] ${message}`, ...args)
             args.forEach((argument) => {
                 console.log(argument)
             })
             args.length > 0 && console.log('---')
         } else {
-            Logger[level](`[${filename}]`)
+            Logger[level](`[${filename}]`, message, ...args)
             console.log(message) //treat as any other object and just log to console
             args.forEach((argument) => {
                 console.log(argument)
