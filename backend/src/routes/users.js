@@ -54,7 +54,7 @@ router.post('/register', async function (req, res, next) {
     const hash = saltHash.hash
 
     try {
-        const user = await knex('users').insert(
+        const insert = await knex('users').insert(
             {
                 username,
                 password,
@@ -70,8 +70,10 @@ router.post('/register', async function (req, res, next) {
             ['id', 'username', 'email', 'phone', 'address', 'is_operator', 'first_name', 'last_name']
         )
 
-        Logger.info(`Inserted User`)
-        res.json({ success: true, user })
+        const user = insert[0]
+        Logger.info(`Inserted User`, user)
+        const tokenObject = utils.issueJWT(user)
+        res.json({ success: true, user, token: tokenObject.token })
     } catch (error) {
         Logger.error(error)
         res.json({ success: false, msg: error })
