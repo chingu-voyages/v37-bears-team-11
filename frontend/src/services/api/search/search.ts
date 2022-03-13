@@ -1,17 +1,27 @@
 // type search result
 export type SearchResult = {
-    id: string
+    id: number
     name: string
     phone: string
     hours: string
-    address: string
+    country: string
+    city: string
+    street: string
+    zip: string
 }
 
 // type expected json response
-export type JSONResponse = {
-    data: SearchResult[]
-    error?: { message: string }
-}
+export type JSONResponse =
+    | {
+          success: true
+          data: SearchResult[]
+          msg?: never
+      }
+    | {
+          success: false
+          data?: never
+          msg: string
+      }
 
 // http get request at search endpoint
 async function getSearchResults(query: string): Promise<SearchResult[]> {
@@ -22,16 +32,16 @@ async function getSearchResults(query: string): Promise<SearchResult[]> {
         },
     })
     // await response
-    const { data, error }: JSONResponse = await response.json()
+    const { success, data, msg }: JSONResponse = await response.json()
 
-    // handle errors in response
-    if (!response.ok) {
-        return Promise.reject(error)
+    // return data
+    if (success) {
+        return data
+
+        // handle error in response
+    } else {
+        return Promise.reject(msg)
     }
-
-    // return  results
-
-    return data
 }
 
 const searchServices = { getSearchResults }
