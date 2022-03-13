@@ -56,21 +56,38 @@ const Logger = winston.createLogger({
 module.exports = function (filename) {
     if (!filename) return Logger
 
+    const log = (level, message, ...args) => {
+        if (typeof message === 'string') {
+            Logger[level](`[${filename}] ${message}`)
+            args.forEach((argument) => {
+                console.log(argument)
+            })
+            args.length > 0 && console.log('---')
+        } else {
+            Logger[level](`[${filename}]`)
+            console.log(message) //treat as any other object and just log to console
+            args.forEach((argument) => {
+                console.log(argument)
+            })
+            console.log('---')
+        }
+    }
+
     return {
         error: (message, ...args) => {
-            Logger.error(`[${filename}] ${message}`, ...args)
+            log('error', message, ...args)
         },
         warn: (message, ...args) => {
-            Logger.warn(`[${filename}] ${message}`, ...args)
+            log('warn', message, ...args)
         },
         info: (message, ...args) => {
-            Logger.info(`[${filename}] ${message}`, ...args)
+            log('info', message, ...args)
         },
         http: (message, ...args) => {
-            Logger.http(`[${filename}] ${message}`, ...args)
+            log('http', message, ...args)
         },
         debug: (message, ...args) => {
-            Logger.debug(`[${filename}] ${message}`, ...args)
+            log('debug', message, ...args)
         },
     }
 }
