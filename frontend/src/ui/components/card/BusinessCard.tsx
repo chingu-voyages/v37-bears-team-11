@@ -6,18 +6,19 @@ type BusinessCardProps = SearchResult & {
 }
 
 function BusinessCard(props: BusinessCardProps) {
-    const { name, phone, hours, country, city, street, zip } = props
+    const { name, phone, hours, country, state, city, street, zip } = props
 
     return (
-        <div className='flex flex-row'>
-            <img src='' className='w-1/4 bg-orange-default'></img>
-            <div className='flex flex-col'>
-                <h2>{name}</h2>
-                <p>{`Phone: ${phone}`}</p>
-                <div>
+        <div className='flex flex-row px-6 py-6 gap-4'>
+            <div className=' flex justify-center items-center w-1/4 bg-orange-default rounded-lg'>
+                <p className='text-white text-2xl'>{name[0]}</p>
+            </div>
+            <div className='flex flex-col font-sans gap-3'>
+                <h2 className='self-center text-2xl font-bold'>{name}</h2>
+                <div className='flex flex-col gap-2'>
+                    <p>{`Phone: ${phone.slice(0, 3)}-${phone.slice(3, 6)}-${phone.slice(6)}`}</p>
                     <p>{`Hours: ${hours}`}</p>
-                    <p>{street}</p>
-                    <p>{`${city}, ${country}, ${zip}`}</p>
+                    <p>{`${street}, ${city}, ${state}, ${country}, ${zip}`}</p>
                 </div>
             </div>
         </div>

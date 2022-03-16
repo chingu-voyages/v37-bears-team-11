@@ -6,8 +6,9 @@ export type SearchResult = {
     hours: string
     country: string
     city: string
+    state?: string
     street: string
-    zip: string
+    zip?: string
 }
 
 // type expected json response

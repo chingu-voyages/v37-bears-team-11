@@ -7,8 +7,8 @@ function SearchResultsList() {
     const results = useSearchResults()
 
     return (
-        <div className='flex flex-col gap-4'>
-            {results.map((result, index) => {
+        <div className='flex flex-col gap-4 divide-y-2'>
+            {results.map((result) => {
                 return <BusinessCard {...result} key={result.id}></BusinessCard>
             })}
         </div>
