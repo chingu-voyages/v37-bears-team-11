@@ -14,7 +14,7 @@ const knex = require("../../database/connection");
  * 
  * Raw POSTGRES query:
  *
- * 	select ft.name, ft.phone, ft.hours, a.country , a.city , a.street, a.zip from food_trucks ft
+ * 	select ft.name, ft.phone, ft.hours, a.country , a.state, a.city , a.street, a.zip from food_trucks ft
  * 	join addresses a on a.id=ft.address_id 
  * 		where ft.id in (
  * 			select ft2.id from food_trucks ft2
@@ -49,6 +49,7 @@ async function searchByUserQuery(query) {
 			"ft.hours",
 			"a.country",
 			"a.city",
+			"a.state",
 			"a.street",
 			"a.zip"
 		)
@@ -66,6 +67,7 @@ async function searchByTag(tag) {
 			"ft.phone",
 			"ft.hours",
 			"a.country",
+			"a.state",
 			"a.city",
 			"a.street",
 			"a.zip"
