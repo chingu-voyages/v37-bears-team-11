@@ -19,12 +19,14 @@ function App() {
                     {loading ? (
                         <Route path='/' element={<LoadingPage setLoading={setLoading} />} />
                     ) : (
-                        <Route path='/' element={<Layout />}>
-                            <Route index element={<Login />} />
-                            <Route path='register' element={<Registration />} />
+                        <>
+                            <Route path='/' element={<Layout />}>
+                                <Route index element={<Login />} />
+                                <Route path='register' element={<Registration />} />
+                                <Route path='/search' element={<SearchResultsList />} />
+                            </Route>
                             <Route path='home' element={<Home />} />
-                            <Route path='/search' element={<SearchResultsList />} />
-                        </Route>
+                        </>
                     )}
                 </Routes>
             </SearchProvider>
