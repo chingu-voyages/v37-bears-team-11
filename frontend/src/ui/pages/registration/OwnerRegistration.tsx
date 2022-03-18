@@ -3,7 +3,7 @@ import ApiServices from '../../../services/apiServices'
 import TokenServices from '../../../services/tokenServices'
 import { Link, useNavigate } from 'react-router-dom'
 
-function Registration(prop) {
+function OwnerRegistration(prop) {
     const history = useNavigate()
     const [error, setError] = useState('')
     // Make react controlled form
@@ -46,17 +46,17 @@ function Registration(prop) {
                         <div>
                             <div className='login-container'>
                                 <label className='hide' htmlFor='username' id='username'>
-                                    Username
+                                    Email
                                 </label>
                                 <input type='text' id='username' name='username' placeholder='Username' />
-                                <label className='hide' htmlFor='password' id='password' name='password'>
-                                    Password
-                                </label>
-                                <input type='password' id='password' name='password' placeholder='Password' />
                                 <label className='hide' htmlFor='email' id='email'>
                                     Email
                                 </label>
                                 <input type='text' id='email' name='email' placeholder='Email' />
+                                <label className='hide' htmlFor='password' id='password' name='password'>
+                                    Password
+                                </label>
+                                <input type='password' id='password' name='password' placeholder='Password' />
                                 <div className='center'>
                                     <button type='submit'>Register</button>
                                 </div>
@@ -76,4 +76,4 @@ function Registration(prop) {
     )
 }
 
-export default Registration
+export default OwnerRegistration

@@ -16,7 +16,10 @@ exports.seed = async function (knex) {
             is_operator: true,
             first_name: 'Jack',
             last_name: 'Marshall',
+            salt: '',
+            hash: ''
         },
+
         {   id: 2,
             username: 'martha_wants_food',
             password: 'password',
@@ -26,6 +29,8 @@ exports.seed = async function (knex) {
             is_operator: false,
             first_name: 'Martha',
             last_name: 'DeLeon',
+            salt: '',
+            hash: ''
         },
 
         {   id: 3,
@@ -37,7 +42,10 @@ exports.seed = async function (knex) {
             is_operator: true,
             first_name: 'Wendy',
             last_name: 'Speed',
+            salt: '',
+            hash: ''
         },
+
         {   id:4,
             username: 'hammer',
             password: 'password',
@@ -47,6 +55,8 @@ exports.seed = async function (knex) {
             is_operator: false,
             first_name: 'Hammer',
             last_name: 'Orcheimer',
+            salt: '',
+            hash: ''
         },
 
         {   id:5,
@@ -58,6 +68,8 @@ exports.seed = async function (knex) {
             is_operator: false,
             first_name: 'Francisca',
             last_name: 'Pawsmith',
+            salt: '',
+            hash: ''
         },
     ])
 }
