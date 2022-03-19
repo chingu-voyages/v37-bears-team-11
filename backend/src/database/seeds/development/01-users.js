@@ -19,8 +19,8 @@ exports.seed = async function (knex) {
             salt: '',
             hash: ''
         },
-        {
-            id: 2,
+
+        {   id: 2,
             username: 'martha_wants_food',
             password: 'password',
             email: 'martha@mail.com',
@@ -33,8 +33,7 @@ exports.seed = async function (knex) {
             hash: ''
         },
 
-        {
-            id: 3,
+        {   id: 3,
             username: 'fast_foods',
             password: 'password',
             email: 'fast_foods@mail.com',
@@ -46,8 +45,8 @@ exports.seed = async function (knex) {
             salt: '',
             hash: ''
         },
-        {
-            id: 4,
+
+        {   id:4,
             username: 'hammer',
             password: 'password',
             email: 'hammer@mail.com',
@@ -60,8 +59,7 @@ exports.seed = async function (knex) {
             hash: ''
         },
 
-        {
-            id: 5,
+        {   id:5,
             username: 'francyfeast',
             password: 'password',
             email: 'francisca@mail.com',

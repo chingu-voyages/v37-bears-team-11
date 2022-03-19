@@ -1,21 +1,17 @@
 import React, { useState } from 'react'
 import searchServices from '../../../services/api/search/search'
-import { ActionHome } from '../../pages/Home/Home'
+import { useSetSearch } from './SearchProvider'
+import { useNavigate } from 'react-router-dom'
 
-/*
-    - type component props
-    - dispatch is the function used to change parent component state
-*/
-export type SearchProps = {
-    dispatch: React.Dispatch<ActionHome>
-}
-
-function Search(props: SearchProps) {
+function Search() {
     // control input in state
     const [input, setInput] = useState('')
 
     //dispatch function to update parent state
-    const { dispatch } = props
+    const dispatch = useSetSearch()
+
+    //navigate function to handle redirect
+    let navigate = useNavigate()
 
     // set search input in state
     function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
@@ -30,9 +26,10 @@ function Search(props: SearchProps) {
         //fetch data and update parent state value
 
         try {
-            dispatch({ type: 'SET_LOADING' })
+            dispatch({ type: 'SET_LOADING', query: input })
             const data = await searchServices.getSearchResults(input)
-            dispatch({ type: 'SET_SEARCH_RESULT', searchResult: data })
+            dispatch({ type: 'SET_SEARCH_RESULT', results: data })
+            navigate(`/search/`)
         } catch (error) {
             //handle errors
             dispatch({ type: 'SET_ERROR' })
