@@ -59,17 +59,23 @@ module.exports = function (filename) {
     const log = (level, message, ...args) => {
         if (typeof message === 'string') {
             Logger[level](`[${filename}] ${message}`, ...args)
-            args.forEach((argument) => {
-                console.log(argument)
-            })
-            args.length > 0 && console.log('---')
+
+            if (process.env.NODE_ENV === 'development') {
+                args.forEach((argument) => {
+                    console.log(argument)
+                })
+                args.length > 0 && console.log('---')
+            }
         } else {
             Logger[level](`[${filename}]`, message, ...args)
-            console.log(message) //treat as any other object and just log to console
-            args.forEach((argument) => {
-                console.log(argument)
-            })
-            console.log('---')
+
+            if (process.env.NODE_ENV === 'development') {
+                console.log(message) //treat as any other object and just log to console
+                args.forEach((argument) => {
+                    console.log(argument)
+                })
+                console.log('---')
+            }
         }
     }
 
