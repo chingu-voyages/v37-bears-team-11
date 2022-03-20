@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "compilerOptions": {
+            "typeRoots": ["node_modules/@types", "src/types"]
+        },
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
