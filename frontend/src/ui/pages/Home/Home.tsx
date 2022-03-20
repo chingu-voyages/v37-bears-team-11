@@ -2,6 +2,7 @@ import React from 'react'
 import Categories from './Categories'
 import Search from '../../components/search/Search'
 import SearchButton from '../../components/search/SearchButton'
+import { Link } from 'react-router-dom'
 
 function Home() {
     return (
@@ -15,6 +16,21 @@ function Home() {
                         <SearchButton />
                     </div>
                 </div>
+            </div>
+            {/* Temporary Links */}
+            <div className='flex flex-row'>
+                <Link to='/register' className='mx-4'>
+                    Sign Up
+                </Link>
+                <Link to='/' className='mx-4'>
+                    Login
+                </Link>
+                <Link to='/search' className='mx-4'>
+                    Search
+                </Link>
+                <Link to='/add-business' className='mx-4'>
+                    Add Business
+                </Link>
             </div>
             <Categories />
         </div>

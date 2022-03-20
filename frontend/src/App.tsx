@@ -9,6 +9,8 @@ import UserRegistration from './ui/pages/registration/UserRegistration'
 import OwnerRegistration from './ui/pages/registration/OwnerRegistration'
 import Home from './ui/pages/Home/Home'
 import SearchResultsList from './ui/components/searchResults/SearchResultsList'
+import AddBusiness from './ui/pages/add-business/AddBusiness'
+import Registration from './ui/pages/registration/Registration'
 // services
 import ApiServices from './services/apiServices'
 import TokenServices from './services/tokenServices'
@@ -105,15 +107,16 @@ function App() {
                             <Route path='/' element={<Layout />}>
                                 <Route index element={<Login setId={setId} setToken={setToken} />} />
                                 <Route
-                                  path='user-registration'
-                                  element={<UserRegistration setId={setId} setToken={setToken} />}
+                                    path='user-registration'
+                                    element={<UserRegistration setId={setId} setToken={setToken} />}
                                 />
                                 <Route
-                                  path='owner-registration'
-                                  element={<OwnerRegistration setId={setId} setToken={setToken} />}
+                                    path='owner-registration'
+                                    element={<OwnerRegistration setId={setId} setToken={setToken} />}
                                 />
                                 <Route path='register' element={<Registration />} />
-                                <Route path='/search' element={<SearchResultsList />} />
+                                <Route path='search' element={<SearchResultsList />} />
+                                <Route path='add-business' element={<AddBusiness />} />
                             </Route>
                             <Route path='home' element={<Home />} />
                         </>
