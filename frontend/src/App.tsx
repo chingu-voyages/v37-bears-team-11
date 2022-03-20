@@ -63,14 +63,9 @@ function App() {
                             <Route path='/' element={<Layout />}>
                                 <Route index element={<Login setId={setId} setToken={setToken} />} />
                                 <Route
-                                    path='user-registration'
-                                    element={<UserRegistration setId={setId} setToken={setToken} />}
+                                    path='register'
+                                    element={<Registration setId={setId} setToken={setToken} />}
                                 />
-                                <Route
-                                    path='owner-registration'
-                                    element={<OwnerRegistration setId={setId} setToken={setToken} />}
-                                />
-                                <Route path='register' element={<Registration />} />
                                 <Route path='/search' element={<SearchResultsList />} />
                             </Route>
                             <Route path='home' element={<Home />} />
