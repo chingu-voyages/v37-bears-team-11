@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
-// components
+//components
+import { SearchProvider } from './ui/components/search/SearchProvider'
 import Layout from './ui/components/Layout'
 import LoadingPage from './ui/pages/loading/LoadingPage'
 import Login from './ui/pages/registration/Login'
 import Registration from './ui/pages/registration/Registration'
 import Home from './ui/pages/Home/Home'
+import SearchResultsList from './ui/components/searchResults/SearchResultsList'
 // services
 import ApiServices from './services/apiServices'
 import TokenServices from './services/tokenServices'
@@ -52,17 +54,30 @@ function App() {
 
     return (
         <div className='App'>
-            <Routes>
-                {loading ? (
-                    <Route path='/' element={<LoadingPage setLoading={setLoading} />} />
-                ) : (
-                    <Route path='/' element={<Layout />}>
-                        <Route index element={<Login setId={setId} setToken={setToken} />} />
-                        <Route path='register' element={<Registration setId={setId} setToken={setToken} />} />
-                        <Route path='home' element={<Home />} />
-                    </Route>
-                )}
-            </Routes>
+            <SearchProvider>
+                <Routes>
+                    {loading ? (
+                        <Route path='/' element={<LoadingPage setLoading={setLoading} />} />
+                    ) : (
+                        <>
+                            <Route path='/' element={<Layout />}>
+                                <Route index element={<Login setId={setId} setToken={setToken} />} />
+                                <Route
+                                    path='user-registration'
+                                    element={<UserRegistration setId={setId} setToken={setToken} />}
+                                />
+                                <Route
+                                    path='owner-registration'
+                                    element={<OwnerRegistration setId={setId} setToken={setToken} />}
+                                />
+                                <Route path='register' element={<Registration />} />
+                                <Route path='/search' element={<SearchResultsList />} />
+                            </Route>
+                            <Route path='home' element={<Home />} />
+                        </>
+                    )}
+                </Routes>
+            </SearchProvider>
         </div>
     )
 }
